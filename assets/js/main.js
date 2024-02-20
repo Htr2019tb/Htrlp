@@ -178,21 +178,24 @@
     })
   });
 
+
+  const handleSubmit(event)=>{
+    event.preventDefault();
+    const name = document.querySelector('input[name=name]').Value;
+    const email = document.querySelector('input[name=email]').Value;
+  
+    fetch('https://api.sheetmonkey.io/form/pAuLGTKbvL9vyfV1HYifKZ',{
+      method:'post',
+      headers: {
+        'Acept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({name, email}),
+    });
+  }
+  document.querySelector('form'),addEventListener('submit', handleSubmit);
+
 })()
 
 
-const handleSubmit(event)=>{
-  event.preventDefault();
-  const name = document.querySelector('input[name=name]').Value;
-  const email = document.querySelector('input[name=email]').Value;
 
-  fetch('https://api.sheetmonkey.io/form/pAuLGTKbvL9vyfV1HYifKZ',{
-    method:'post',
-    headers: {
-      'Acept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({name, email}),
-  });
-}
-document.querySelector('form'),addEventListener('submit', handleSubmit);
